@@ -1,0 +1,42 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+    <th:block th:include="~{fragments/head}"></th:block>
+
+</head>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded font-weight-bold">
+
+            <th:block th:include="~{fragments/guest-nav}"></th:block>
+        </nav>
+
+    </header>
+    <main class="mt-3">
+        <div class="jumbotron bg-light">
+            <h1 class="display-4 align-content-center">Здравейте Красиви!</h1>
+            <p class="lead align-content-center">Искате да бъдете още по-красиви! Искате бързо да откриете Вашето място за красота.</p>
+            <h2 class="align-content-center"> Добре дошли в BEAUTY CLUB</h2>
+            <hr class="my-4">
+            <p class="h4">Тук ще имате достъп да богат избор от салони за красота,
+                където с един клик можеда запазите Вашият час само за себе си! </p>
+            <h3> Ако сте вече Една от Нас
+                <a class="text-primay" th:href="@{/users/login}">Login</a>
+                Ако ли не
+                <a class="text-primay" th:href="@{/users/register}">Register</a>
+            </h3>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" th:href="@{/home}" role="button">Learn more</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="mt-3">
+        <th:block th:include="~{fragments/footer}"></th:block>
+    </footer>
+
+
+
+</body>
+</html>

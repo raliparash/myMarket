@@ -1,0 +1,63 @@
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+    <th:block th:include="~{fragments/head}"></th:block>
+
+</head>
+<body>
+<div class="container-fluid">
+    
+    <header>
+            
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded font-weight-bold">
+        <th:block th:include="~{fragments/nav}"></th:block>
+    </nav>
+
+    </header>
+
+    <main class="mt-3">
+        <h1 class="text-center text-dark">All Businesses</h1>
+        <hr class="hr-2 bg-dark w-75">
+        <table class="table table-hover w-75 mx-auto">
+            <thead>
+            <tr class="row mx-auto">
+                <th class="col-md-1 text-center">#</th>
+                <th class="col-md-3 text-center">Image</th>
+                <th class="col-md-3 text-center">Name</th>
+                <th class="col-md-3 text-center">Type</th>
+                <th class="col-md-3 text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="business, iter : ${businesses}">
+                <tr class="row mx-auto">
+                    <th class="col-md-1 text-center" th:text="${iter.index+1}"></th>
+                    <td class="col-md-3"><div class="text-center">
+                        <img th:src="${business.image}" width="40" height="40" alt="Business"></div></td>
+                    <td class="col-md-3 text-center" th:text="${business.name}"></td>
+                    <td class="col-md-2 text-center" th:text="${business.type}"></td>
+                    <td class="col-md-2 text-center" th:text="${business.description}"></td>
+
+                    <td class="col-md-3 text-center">
+                        <a th:href="@{/businesses/details/{id}(id=${business.id})}" class="btn btn-secondary font-weight-bold text-white">Details</a>
+                        <a th:href="@{/businesses/edit/{id}(id=${business.id})}" class="btn btn-success font-weight-bold text-white">Edit</a>
+                        <a th:href="@{/businesses/delete/{id}(id=${business.id})}" class="btn btn-danger font-weight-bold text-white">Delete</a>
+                    </td>
+                </tr>
+
+            </th:block>
+
+            </tbody>
+        </table>
+    </main>
+    
+    <footer class="mt-3">
+        <th:block th:include="~{fragments/footer}"></th:block>
+        </div>
+    </footer>
+
+</div>
+
+
+</body></html>
